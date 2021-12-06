@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var addStrings = function (num1, num2) {
+            // 两个指向末尾的指针，add控制进位
+            let i = num1.length - 1, j = num2.length - 1, add = 0
+            // 将两个字符串划为数组
+            const arr1 = num1.split(''), arr2 = num2.split('')
+            // 新建数组存储结果
+            const cur = new Array()
+            while (i >= 0 || j >= 0 || add != 0) {
+                const x = i >= 0 ? arr1[i] * 1 : 0
+                const y = j >= 0 ? arr2[j] * 1 : 0
+                // 计算结果
+                const z = x + y + add
+                // 存入数组
+                cur.push(z % 10)
+                // 调整进位
+                add = z / 10 >= 1 ? 1 : 0
+                i--
+                j--
+            }
+            console.log(cur)
+            // 定义结果
+            let result = 0
+            for (let k = 0; k <= cur.length - 1; k++) {
+                // 结果为从数组里顺序取数后与1、10、100...相乘后相加
+                result += cur[k] * Math.pow(10, k)
+                console.log(result);
+            }
+            return result + ''
+        };
+
+        console.log(addStrings("18582506933032752", "366213329703"));
+    </script>
+</body>
+
+</html>

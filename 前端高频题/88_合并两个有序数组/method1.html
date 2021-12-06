@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * @param {number[]} nums1
+         * @param {number} m
+         * @param {number[]} nums2
+         * @param {number} n
+         * @return {void} Do not return anything, modify nums1 in-place instead.
+        */
+        var merge = function (nums1, m, nums2, n) {
+            // 将数组2加入数组1中
+            for (let i = 0; i < n; i++) {
+                if (nums2[i] !== undefined) {
+                    nums1[m++] = nums2[i]
+                }
+            }
+
+            // 排序数组1
+            return nums1.sort((a, b) => a - b)
+        };
+
+        const arr1 = [-4, -2, 4, 0, 0]
+        const arr2 = [-2, -1]
+        console.log(merge(arr1, 3, arr2, 2));
+    </script>
+</body>
+
+</html>
